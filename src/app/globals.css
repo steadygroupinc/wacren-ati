@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #004A99;
+  --accent: #E67E22;
+  --bg-soft: #F9F6F3;
+  --text-main: #323232;
+
+  /* Legacy mapping for compatibility */
+  --earth-deep: var(--primary);
+  --earth-warm: #003366; /* Darker blue */
+  --terracotta: var(--accent); /* CTA color -> Orange */
+  --ochre: #d35400; /* Darker orange */
+  --gold: var(--accent);
+  --teal-dark: #002D5C;
+  --teal: var(--primary); /* Brand blue */
+  --teal-light: #3391FF;
+  --cream: var(--bg-soft);
+  --cream-mid: #F0EBE6;
+  --sand: #DDD6CC;
+  --slate: #242424;
+  --white: #ffffff;
+  --text-dark: var(--text-main);
+  --text-mid: #555555;
+  --text-muted: #888888;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-bg-soft: var(--bg-soft);
+  --color-text-main: var(--text-main);
+
+  --color-earth-deep: var(--earth-deep);
+  --color-earth-warm: var(--earth-warm);
+  --color-terracotta: var(--terracotta);
+  --color-ochre: var(--ochre);
+  --color-gold: var(--gold);
+  --color-teal-dark: var(--teal-dark);
+  --color-teal: var(--teal);
+  --color-teal-light: var(--teal-light);
+  --color-cream: var(--cream);
+  --color-cream-mid: var(--cream-mid);
+  --color-sand: var(--sand);
+  --color-slate: var(--slate);
+  --color-white: var(--white);
+  --color-text-dark: var(--text-dark);
+  --color-text-mid: var(--text-mid);
+  --color-text-muted: var(--text-muted);
+
+  --font-outfit: var(--font-outfit);
+}
+
+body {
+  background: var(--cream);
+  color: var(--text-dark);
+  font-family: var(--font-outfit), sans-serif;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Nuclear Interaction Reset - "Professional" borderless requirement */
+*, *::before, *::after {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+  outline-color: transparent !important;
+  outline-style: none !important;
+  outline-width: 0 !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
+/* Remove EVERYTHING from interactive elements */
+a, button, input, textarea, select, [role="button"] {
+  outline: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Remove EVERY trace of focus/active borders, shadows, and rings */
+*:focus, 
+*:active, 
+*:focus-visible, 
+*:focus-within,
+button:focus, 
+button:active,
+button:focus-visible,
+a:focus, 
+a:active,
+a:focus-visible,
+input:focus, 
+input:active,
+[role="button"]:focus,
+[role="button"]:active {
+  outline: none !important;
+  outline-style: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+  border: none !important; /* Nuclear option: remove the border entirely on focus */
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  --tw-ring-width: 0px !important;
+  --tw-ring-offset-width: 0px !important;
+}
+
+/* Hard reset for Tailwind focus rings and inner focus styles */
+button::-moz-focus-inner,
+a::-moz-focus-inner {
+  border: 0 !important;
+  outline: 0 !important;
+}
+
+/* Kente-style divider strip (keep as it is a graphic pattern) */
+.kente-strip {
+  height: 12px;
+  width: 100%;
+  background-image: 
+    linear-gradient(90deg, 
+      #004A99 0% 25%, 
+      #E67E22 25% 50%, 
+      #323232 50% 75%, 
+      #F9F6F3 75% 100%
+    );
+  background-size: 60px 100%;
+}
