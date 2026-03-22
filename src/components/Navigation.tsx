@@ -76,9 +76,7 @@ export default function Navigation() {
 
         <div className="hidden lg:flex items-center gap-[8px] shrink-0">
           <Link 
-            href="/documents/ATI-Programme-Framework.pdf" 
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/#framework" 
             className="px-[12px] py-[8px] border border-gray-200 rounded-[6px] text-[12px] font-bold text-text-main hover:bg-gray-50 transition-all no-underline uppercase tracking-[0.02em]"
           >
             Framework
