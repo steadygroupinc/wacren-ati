@@ -31,6 +31,7 @@ export default function Navigation() {
     { name: 'Community', href: '/#community' },
     { name: 'NetSec Forum', href: '/netsec' },
     { name: 'Launch 2026', href: '/#launch' },
+    { name: 'Framework', href: '/#framework' },
     { name: 'Facilitators', href: '/#facilitator' },
     { name: 'Programmes', href: '/#related' },
   ];
