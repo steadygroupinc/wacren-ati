@@ -45,3 +45,7 @@ next-env.d.ts
 
 # design artifacts
 /ati-wireframe.html
+
+# deployment & temporary files
+*.zip
+git_status.txt
