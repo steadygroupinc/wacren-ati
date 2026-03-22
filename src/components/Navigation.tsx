@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -25,10 +26,13 @@ export default function Navigation() {
   }, [isOpen]);
 
   const navLinks = [
-    { name: 'About ATI', href: '/about' },
-    { name: 'ATI-6', href: '/ati-6' },
-    { name: 'Training', href: '/training' },
-    { name: 'Iterations', href: '/#iterations' },
+    { name: 'About ATI', href: '/#about' },
+    { name: 'Training Modules', href: '/#modules' },
+    { name: 'Community', href: '/#community' },
+    { name: 'NetSec Forum', href: '/netsec' },
+    { name: 'Launch 2026', href: '/#launch' },
+    { name: 'Facilitators', href: '/#facilitator' },
+    { name: 'Programmes', href: '/#related' },
   ];
 
   const isActive = (href: string) => {
@@ -38,119 +42,148 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="sticky top-0 z-[100] bg-earth-deep w-full shadow-lg">
-      <div className="flex items-center justify-between px-6 lg:px-14 h-16 lg:h-20 max-w-[1600px] mx-auto">
+    <nav className="sticky top-0 z-[100] bg-white border-b border-gray-100 w-full h-[60px] flex items-center">
+      <div className="container-wf flex items-center justify-between w-full">
         {/* Logo */}
-        <Link href="/" className="bg-white px-3 py-1.5 lg:px-4 lg:py-2 rounded-sm flex items-center justify-center hover:bg-cream transition-all relative z-50">
-          <img src="/images/wacren-ati-logo.png" alt="WACREN ATI - Africa Training Initiative official logo" className="h-8 lg:h-10 w-auto" />
+        <Link href="/" className="flex items-center no-underline shrink-0">
+          <Image 
+            src="/images/wacren-ati-logo.png" 
+            alt="WACREN ATI Logo" 
+            width={180}
+            height={40}
+            className="h-[40px] w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden lg:flex items-center gap-8 list-none">
+        <ul className="hidden lg:flex items-center gap-[4px] list-none m-0 p-0 flex-1 justify-center px-4">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link 
                 href={link.href} 
-                className={`text-xs font-bold uppercase tracking-widest transition-all relative py-1 ${
+                className={`px-[10px] py-[6px] text-[12px] font-medium transition-all rounded-[4px] no-underline whitespace-nowrap ${
                   isActive(link.href) 
-                    ? 'text-gold after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gold after:rounded-full' 
-                    : 'text-sand hover:text-gold'
+                    ? 'text-primary bg-primary/5' 
+                    : 'text-gray-500 hover:text-primary hover:bg-gray-50'
                 }`}
               >
                 {link.name}
               </Link>
             </li>
           ))}
-          <li className="flex items-center gap-4 ml-4">
-            <Link 
-              href="/apply" 
-              className={`px-6 py-2.5 rounded-sm text-xs font-bold uppercase tracking-widest transition-all ${
-                isActive('/apply')
-                  ? 'bg-gold text-earth-deep shadow-inner'
-                  : 'bg-terracotta text-white hover:bg-ochre'
-              }`}
-            >
-              Apply Now
-            </Link>
-            <Link 
-              href="/partners" 
-              className={`px-6 py-2.5 rounded-sm text-xs font-bold uppercase tracking-widest transition-all ${
-                isActive('/partners')
-                  ? 'bg-gold text-earth-deep shadow-inner'
-                  : 'bg-white/10 text-white hover:bg-gold hover:text-earth-deep'
-              }`}
-            >
-              Partner With Us
-            </Link>
-          </li>
         </ul>
 
+        <div className="hidden lg:flex items-center gap-[8px] shrink-0">
+          <Link 
+            href="#framework" 
+            className="px-[12px] py-[8px] border border-gray-200 rounded-[6px] text-[12px] font-bold text-text-main hover:bg-gray-50 transition-all no-underline uppercase tracking-[0.02em]"
+          >
+            Framework
+          </Link>
+          <Link 
+            href="https://survey.wacren.net/index.php/291743" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-[14px] py-[8px] bg-primary border-[1.5px] border-primary text-white rounded-[6px] text-[12px] font-bold hover:bg-primary/90 transition-all no-underline uppercase tracking-[0.02em]"
+          >
+            Apply Now
+          </Link>
+        </div>
+
         {/* Mobile Toggle */}
-        <button 
-          onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden relative z-50 p-2 text-gold focus:outline-none"
-          aria-label="Toggle Menu"
-        >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        {!isOpen && (
+          <button 
+            onClick={() => setIsOpen(true)}
+            className="lg:hidden p-2 text-primary focus:outline-none"
+            aria-label="Open Menu"
+          >
+            <Menu size={28} />
+          </button>
+        )}
       </div>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed inset-0 z-40 bg-earth-deep flex flex-col pt-24 px-8 lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[110] bg-primary lg:hidden flex flex-col"
           >
-            {/* Background Accent */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-terracotta/5 rounded-full -mr-20 -mt-20 blur-3xl"></div>
-            
-            <ul className="flex flex-col gap-6 list-none relative z-10 overflow-y-auto">
-              {navLinks.map((link, i) => (
-                <motion.li 
-                  key={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 + i * 0.05 }}
-                >
-                  <Link 
-                    href={link.href} 
-                    className={`text-2xl font-bold uppercase tracking-widest ${
-                      isActive(link.href) ? 'text-gold' : 'text-sand'
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                </motion.li>
-              ))}
-              
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="mt-8 flex flex-col gap-4"
-              >
-                <Link 
-                  href="/apply" 
-                  className="w-full text-center py-4 bg-terracotta text-white font-bold uppercase tracking-[0.2em] rounded-sm text-sm"
-                >
-                  Apply Now
+            {/* Mobile Header Row */}
+            <div className="h-[60px] flex items-center px-6 border-b border-white/10 shrink-0">
+              <div className="flex items-center justify-between w-full">
+                <Link href="/" onClick={() => setIsOpen(false)} className="no-underline">
+                  <Image 
+                    src="/images/wacren-ati-logo.png" 
+                    alt="WACREN ATI Logo" 
+                    width={140}
+                    height={32}
+                    className="h-[32px] w-auto brightness-0 invert"
+                  />
                 </Link>
-                <Link 
-                  href="/partners" 
-                  className="w-full text-center py-4 bg-white/10 text-white font-bold uppercase tracking-[0.2em] rounded-sm text-sm border border-white/10"
+                <button 
+                  onClick={() => setIsOpen(false)}
+                  className="p-2 text-white hover:bg-white/10 rounded-full transition-colors"
                 >
-                  Partner With Us
-                </Link>
-              </motion.div>
-            </ul>
+                  <X size={24} />
+                </button>
+              </div>
+            </div>
 
-            {/* Bottom Footer in Menu */}
-            <div className="mt-auto pb-12 opacity-40 text-sand text-[10px] uppercase tracking-[0.3em] font-medium text-center">
-              WACREN ATI &copy; {new Date().getFullYear()}
+            <div className="flex-1 overflow-y-auto px-8 py-10 flex flex-col relative">
+              {/* Background Glow */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl -z-10 opacity-30"></div>
+              
+              <ul className="flex flex-col gap-6 list-none m-0 p-0">
+                {navLinks.map((link, i) => (
+                  <motion.li 
+                    key={link.href}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                  >
+                    <Link 
+                      href={link.href} 
+                      onClick={() => setIsOpen(false)}
+                      className={`text-[20px] font-medium tracking-tight no-underline transition-colors ${
+                        isActive(link.href) ? 'text-accent border-l-2 border-accent pl-4 -ml-4' : 'text-white/90 hover:text-white'
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+
+              <div className="mt-12 space-y-3">
+                <Link 
+                  href="https://survey.wacren.net/index.php/291743" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center py-4 bg-accent text-white font-semibold uppercase tracking-wider rounded-[6px] text-[13px] no-underline shadow-lg"
+                >
+                  Apply to Facilitate &rarr;
+                </Link>
+                <Link 
+                  href="https://indico.wacren.net/event/263/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center py-4 bg-white/10 text-white font-semibold uppercase tracking-wider rounded-[6px] text-[13px] border border-white/20 no-underline"
+                >
+                  WACREN 2026 Details
+                </Link>
+              </div>
+
+              <div className="mt-auto pt-10 pb-6 border-t border-white/10">
+                <div className="flex flex-col items-center gap-2">
+                  <div className="text-white/40 text-[10px] uppercase tracking-[0.2em] font-mono">
+                    WACREN ATI &copy; {new Date().getFullYear()}
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         )}

@@ -6,23 +6,21 @@
   --bg-soft: #F9F6F3;
   --text-main: #323232;
 
-  /* Legacy mapping for compatibility */
-  --earth-deep: var(--primary);
-  --earth-warm: #003366; /* Darker blue */
-  --terracotta: var(--accent); /* CTA color -> Orange */
-  --ochre: #d35400; /* Darker orange */
-  --gold: var(--accent);
-  --teal-dark: #002D5C;
-  --teal: var(--primary); /* Brand blue */
-  --teal-light: #3391FF;
-  --cream: var(--bg-soft);
-  --cream-mid: #F0EBE6;
-  --sand: #DDD6CC;
-  --slate: #242424;
+  /* Wireframe proportions */
+  --max-container: 1080px;
+  --radius: 6px;
+  --radius-lg: 12px;
+
   --white: #ffffff;
   --text-dark: var(--text-main);
   --text-mid: #555555;
   --text-muted: #888888;
+}
+
+.container-wf {
+  max-width: var(--max-container);
+  margin: 0 auto;
+  padding: 0 32px;
 }
 
 @theme inline {
@@ -31,18 +29,6 @@
   --color-bg-soft: var(--bg-soft);
   --color-text-main: var(--text-main);
 
-  --color-earth-deep: var(--earth-deep);
-  --color-earth-warm: var(--earth-warm);
-  --color-terracotta: var(--terracotta);
-  --color-ochre: var(--ochre);
-  --color-gold: var(--gold);
-  --color-teal-dark: var(--teal-dark);
-  --color-teal: var(--teal);
-  --color-teal-light: var(--teal-light);
-  --color-cream: var(--cream);
-  --color-cream-mid: var(--cream-mid);
-  --color-sand: var(--sand);
-  --color-slate: var(--slate);
   --color-white: var(--white);
   --color-text-dark: var(--text-dark);
   --color-text-mid: var(--text-mid);

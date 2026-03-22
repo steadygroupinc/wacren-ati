@@ -1,0 +1,46 @@
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
+
+export default function Framework() {
+  return (
+    <section id="framework" className="py-16 md:py-24 bg-bg-soft border-y border-gray-100">
+      <div className="container-wf">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-16">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-8 text-center md:text-left">
+            {/* Professional PDF Icon Representation */}
+            <div className="relative group shrink-0">
+              <div className="w-[60px] h-[80px] bg-white border border-gray-200 rounded-[4px] shadow-sm flex flex-col items-center justify-end pb-3 relative overflow-hidden transition-transform hover:scale-105">
+                <div className="absolute top-0 right-0 w-0 h-0 border-t-[16px] border-l-[16px] border-t-bg-soft border-l-white/20 shadow-[-1px_1px_2px_rgba(0,0,0,0.05)]"></div>
+                <div className="absolute top-4 w-8 h-1 bg-primary/10 rounded-full"></div>
+                <div className="absolute top-7 w-6 h-1 bg-primary/5 rounded-full"></div>
+                <div className="absolute top-10 w-8 h-1 bg-primary/10 rounded-full"></div>
+                <div className="bg-accent text-white text-[9px] font-bold px-2 py-0.5 rounded-[2px] tracking-tight">PDF</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-[32px] md:text-[38px] font-serif leading-[1.2] mb-4 tracking-tighter text-text-main font-normal italic">
+                ATI Programme <em className="not-italic text-primary">Framework</em>
+              </h2>
+              <p className="text-[15px] md:text-base text-gray-500 max-w-[600px] leading-relaxed font-normal">
+                A detailed description of the ATI programme, including its historical development, training tracks, and operational framework, is available in the programme concept note.
+              </p>
+            </div>
+          </div>
+
+          <Link 
+            href="https://survey.wacren.net/index.php/291743" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group px-8 py-4 bg-primary text-white rounded-[6px] font-bold text-[14px] hover:bg-primary/90 transition-all no-underline shadow-xl flex items-center gap-3 uppercase tracking-wider"
+          >
+            Download Framework (PDF)
+            <span className="transition-transform group-hover:translate-y-1">↓</span>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}

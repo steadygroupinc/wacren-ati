@@ -1,162 +1,74 @@
-import { Construction, Assignment, BarChart, Policy } from '@mui/icons-material';
+'use client';
+
+import React from 'react';
+
+const modules = [
+  { id: 1, name: 'Network Monitoring & Management', focus: 'Monitoring architectures, telemetry, troubleshooting', tag: 'Network operations' },
+  { id: 2, name: 'Campus Network Architecture', focus: 'Scalable campus networks, wireless infrastructure', tag: 'Africa Digital Campus' },
+  { id: 3, name: 'Routing & Interconnection', focus: 'BGP operations, routing resilience, IXPs', tag: 'NREN connectivity' },
+  { id: 4, name: 'Cybersecurity Operations', focus: 'Incident response, SOC operations, threat intelligence', tag: 'TrustBroker Africa' },
+  { id: 5, name: 'Trust & Identity Infrastructure', focus: 'eduroam, federation, RADIUS infrastructure', tag: 'eduID.africa' },
+  { id: 6, name: 'Research Infrastructure Operations', focus: 'Repositories, research data platforms', tag: 'LIBSENSE · CLIMET' },
+];
 
 export default function Modules() {
-  const trainingTracks = [
-    {
-      name: 'Technical Track',
-      icon: <Construction />,
-      color: 'terracotta',
-      modules: [
-        {
-          id: 'T1',
-          title: 'Observability and Operations: Network Monitoring and Management (NMM)',
-          description: 'Monitoring architectures, performance measurement, fault detection, incident workflows, and root-cause analysis. Hands-on with open-source tooling appropriate for NREN and campus networks.',
-          status: 'Launching WACREN 2026',
-          isActive: true
-        },
-        {
-          id: 'T2',
-          title: 'Routing, Peering and Resilience: BGP and IXP Operations',
-          description: 'BGP fundamentals and advanced configurations, IXP integration, peering strategies, and building resilient multi-path routing architectures for growing NREN infrastructure.',
-          status: 'Planned: Post-2026'
-        },
-        {
-          id: 'T3',
-          title: 'Security Operations Foundations: Monitoring to Response and CSIRT Readiness',
-          description: 'Building on NMM baseline and TrustBroker Africa linkages: incident response workflows, threat detection, CSIRT establishment and operations for African RENs and universities.',
-          status: 'Planned: Post-2026'
-        },
-        {
-          id: 'T4',
-          title: 'Trust and Identity Operations: eduroam, Federation and IAM',
-          description: "Operational readiness for eduroam and identity federation services, IAM basics, and building trust infrastructure that connects Africa's research and education communities globally.",
-          status: 'Planned: Post-2026'
-        },
-        {
-          id: 'T5',
-          title: 'Automation and Reliability: NetDevOps and Config Management',
-          description: 'Network automation tooling, configuration management, telemetry pipelines, and NetDevOps workflows that keep expanding NREN networks stable and manageable at scale.',
-          status: 'Planned: Post-2026'
-        }
-      ]
-    },
-    {
-      name: 'Administration Track',
-      icon: <Assignment />,
-      color: 'ochre',
-      modules: [
-        {
-          id: 'A1',
-          title: 'NREN Service Management & Delivery',
-          description: 'Frameworks for managing NREN service portfolios, defining service levels, handling member relations, and building operational processes that scale with growing network organisations.',
-          status: 'Under Design'
-        },
-        {
-          id: 'A2',
-          title: 'Programme & Project Administration for Research Networks',
-          description: 'Practical project administration skills for NREN and HEI staff managing capacity-building programmes, donor-funded projects, and multi-stakeholder initiatives.',
-          status: 'Under Design'
-        }
-      ]
-    },
-    {
-      name: 'Business Management Track',
-      icon: <BarChart />,
-      color: 'ochre',
-      modules: [
-        {
-          id: 'B1',
-          title: 'Financial Management & Sustainability for NRENs',
-          description: 'Budgeting, cost-recovery models, financial reporting, and strategies for building long-term financial sustainability in NRENs operating in diverse African funding environments.',
-          status: 'Under Design'
-        },
-        {
-          id: 'B2',
-          title: 'Business Model Design & Service Strategy',
-          description: 'Tools and frameworks for designing sustainable NREN and HEI digital service offerings, from membership models to commercial service strategies that support research and education missions.',
-          status: 'Under Design'
-        }
-      ]
-    },
-    {
-      name: 'Governance Track',
-      icon: <Policy />,
-      color: 'text-muted',
-      modules: [
-        {
-          id: 'G1',
-          title: 'NREN Governance Foundations: Board Leadership and Oversight',
-          description: 'Governance structures, board responsibilities, accountability frameworks, and leadership practices for those who direct and oversee African NRENs and associated digital infrastructure organisations.',
-          status: 'Under Design'
-        },
-        {
-          id: 'G2',
-          title: 'Policy, Advocacy & Regulatory Engagement',
-          description: 'Understanding the policy landscape, engaging national and regional regulators, advocating for enabling environments for NRENs, and participating effectively in international REN governance bodies.',
-          status: 'Under Design'
-        }
-      ]
-    }
-  ];
-
   return (
-    <section className="bg-cream px-14 py-24" id="programs">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 mb-12">
-          <div>
-            <div className="font-bold text-xs uppercase tracking-widest text-terracotta mb-3">
-              Training Programmes
-            </div>
-            <h2 className="font-bold text-3xl lg:text-4xl text-earth-deep mb-5">
-              Programmes Across<br />All <em className="text-terracotta not-italic">Tracks & Audiences</em>.
-            </h2>
-          </div>
-          <div className="flex items-center">
-            <p className="text-text-mid text-base leading-relaxed">
-              ATI programmes span technical operations, administration, business management, and governance, designed for NRENs, network operators, and the broader technical and leadership communities of higher education and research institutions. Modules are self-contained yet stackable, delivered through NREN, NOG, and university partnerships.
-            </p>
-          </div>
-        </div>
+    <section id="modules" className="py-[72px] bg-white">
+      <div className="container-wf">
+        <span className="font-mono text-[10px] tracking-[0.1em] text-primary opacity-70 uppercase mb-[8px] block">
+          Training Curriculum
+        </span>
+        <h2 className="font-serif text-[32px] md:text-[38px] leading-[1.2] mb-[20px] tracking-tighter text-text-main font-normal">
+          ATI Training <em className="italic text-primary not-italic font-normal">Modules</em>
+        </h2>
+        <p className="text-[15px] md:text-base text-gray-500 max-w-[600px] mb-[40px] font-normal leading-relaxed">
+          ATI training modules align with the operational layers of the research and education digital infrastructure stack.
+        </p>
 
-        <div className="space-y-12">
-          {trainingTracks.map((track, trackIndex) => (
-            <div key={trackIndex}>
-              {/* Track Header */}
-              <div className="flex items-center gap-4 mb-6">
-                <span className={`text-[10px] font-bold tracking-widest uppercase text-${track.color} whitespace-nowrap flex items-center gap-2`}>
-                  <span className="text-xs">{track.icon}</span> {track.name}
+        {/* Mobile: Card Layout */}
+        <div className="flex flex-col gap-4 md:hidden">
+          {modules.map((m) => (
+            <div key={m.id} className="bg-bg-soft p-6 rounded-[12px] border border-gray-100 flex flex-col gap-3">
+              <div className="flex justify-between items-start gap-4">
+                <h3 className="text-15px font-semibold text-text-main leading-tight">{m.name}</h3>
+                <span className="text-[10px] font-mono text-primary font-medium px-2 py-0.5 bg-primary/5 rounded border border-primary/10 whitespace-nowrap">
+                  {m.tag}
                 </span>
-                <div className={`flex-1 h-px bg-${track.color} opacity-25`}></div>
               </div>
-
-              {/* Module List */}
-              <div className="space-y-0">
-                {track.modules.map((module, modIndex) => (
-                  <div key={modIndex} className="grid grid-cols-[56px_1fr] gap-0 py-6 group cursor-default">
-                    <div className="text-xs font-bold text-terracotta pt-1">
-                      {module.id}
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-base text-earth-deep mb-1 transition-colors">
-                        {module.title}
-                      </h4>
-                      <p className="text-sm text-text-muted leading-relaxed mb-3">
-                        {module.description}
-                      </p>
-                      <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm transition-colors ${
-                        module.isActive
-                        ? 'bg-terracotta/10 text-terracotta'
-                        : 'bg-cream-mid text-text-muted ring-1 ring-sand/30'
-                      }`}>
-                        {module.status}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <p className="text-[13px] text-gray-500 leading-relaxed font-normal">
+                {m.focus}
+              </p>
             </div>
           ))}
         </div>
+
+        {/* Desktop: Table Layout */}
+        <div className="hidden md:block overflow-x-auto">
+          <table className="w-full border-collapse text-left min-w-[600px]">
+            <thead>
+              <tr className="bg-bg-soft border-b-2 border-accent">
+                <th className="px-[20px] py-[14px] text-[13px] font-semibold text-text-main font-mono uppercase tracking-[0.04em]">Module</th>
+                <th className="px-[20px] py-[14px] text-[13px] font-semibold text-text-main font-mono uppercase tracking-[0.04em]">Focus</th>
+                <th className="px-[20px] py-[14px] text-[13px] font-semibold text-text-main font-mono uppercase tracking-[0.04em]">Supports</th>
+              </tr>
+            </thead>
+            <tbody>
+              {modules.map((m) => (
+                <tr key={m.id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                  <td className="px-[20px] py-[16px] text-[14px] font-semibold text-text-main">{m.name}</td>
+                  <td className="px-[20px] py-[16px] text-[14px] text-gray-500 font-normal">{m.focus}</td>
+                  <td className="px-[20px] py-[16px]">
+                    <span className="text-[12px] font-mono text-primary font-medium">{m.tag}</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <p className="text-[14px] md:text-[15px] leading-[1.8] text-gray-400 max-w-[640px] mt-[32px] italic font-normal">
+          Together these modules provide a structured pathway for engineers and infrastructure operators to develop the expertise required to support modern research and education environments.
+        </p>
       </div>
     </section>
   );
