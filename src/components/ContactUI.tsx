@@ -77,7 +77,22 @@ export default function ContactUI() {
 
           {/* Right: Contact Form Card */}
           <div className="lg:col-span-7 bg-white p-6 md:p-12 lg:p-20 shadow-[0_40px_120px_-20px_rgba(0,74,153,0.1)] rounded-[12px] border-t-8 border-primary w-full">
-            <form className="space-y-8 h-full flex flex-col">
+            {/* Maintenance Notice */}
+            <div className="mb-10 p-5 bg-primary/5 border border-primary/10 rounded-[8px] flex items-start gap-4">
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <h4 className="text-primary font-bold text-[13px] uppercase tracking-wider mb-1">System Notice</h4>
+                <p className="text-gray-600 text-[14px] leading-relaxed">
+                  Our contact form is currently undergoing scheduled optimization to improve our service. In the meantime, please feel free to reach out to us directly via the contact information provided.
+                </p>
+              </div>
+            </div>
+
+            <form className="space-y-8 h-full flex flex-col opacity-60 pointer-events-none select-none">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
                   <label htmlFor="name" className="block text-[11px] font-bold uppercase tracking-[0.1em] text-gray-500">Name</label>
@@ -134,9 +149,13 @@ export default function ContactUI() {
 
               <button 
                 type="submit"
-                className="w-full bg-primary text-white py-6 text-[14px] font-bold uppercase tracking-[0.2em] rounded-[6px] hover:bg-primary/90 transition-all shadow-xl hover:-translate-y-1 focus:outline-none mt-4"
+                disabled
+                className="w-full bg-gray-200 text-gray-400 py-6 text-[14px] font-bold uppercase tracking-[0.2em] rounded-[6px] cursor-not-allowed mt-4 flex items-center justify-center gap-3"
               >
-                Send Message
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                Form Submissions Paused
               </button>
             </form>
           </div>
