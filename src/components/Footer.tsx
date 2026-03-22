@@ -8,8 +8,8 @@ import Image from 'next/image';
 
 export default function Footer() {
   const atiLinks = [
-    { label: 'About ATI', href: '#about' },
-    { label: 'Training Modules', href: '#modules' },
+    { label: 'About ATI', href: '/#about' },
+    { label: 'Training Modules', href: '/#modules' },
     { label: 'Programme Framework', href: '/#framework' },
     { label: 'Apply to Facilitate', href: 'https://survey.wacren.net/index.php/291743' },
   ];
