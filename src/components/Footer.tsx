@@ -10,7 +10,7 @@ export default function Footer() {
   const atiLinks = [
     { label: 'About ATI', href: '#about' },
     { label: 'Training Modules', href: '#modules' },
-    { label: 'Programme Framework', href: '#framework' },
+    { label: 'Programme Framework', href: '/documents/ATI-Programme-Framework.pdf' },
     { label: 'Apply to Facilitate', href: 'https://survey.wacren.net/index.php/291743' },
   ];
 

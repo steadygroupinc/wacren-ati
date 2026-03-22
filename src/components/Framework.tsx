@@ -31,7 +31,7 @@ export default function Framework() {
           </div>
 
           <Link 
-            href="https://survey.wacren.net/index.php/291743" 
+            href="/documents/ATI-Programme-Framework.pdf" 
             target="_blank"
             rel="noopener noreferrer"
             className="group px-8 py-4 bg-primary text-white rounded-[6px] font-bold text-[14px] hover:bg-primary/90 transition-all no-underline shadow-xl flex items-center gap-3 uppercase tracking-wider"
